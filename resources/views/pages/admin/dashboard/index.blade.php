@@ -2,7 +2,7 @@
 @section('title','Dashboard')
 @section('dashboard','active')
 @section('content')
-@include('includes.page-title',['title' => 'Dashboard','paragraph' => 'Melihat statistik cafe'])
+@include('includes.page-title',['title' => 'Dashboard','paragraph' => 'Statistic Warung'])
 <section class="section">
     <div class="row mb-2">
         <div class="col-12 col-md-4">

@@ -200,4 +200,6 @@ class TransactionController extends Controller
             return response()->json(['msg' => 'Status transaksi gagal diubah'], 500);
         }
     }
+
+    
 }

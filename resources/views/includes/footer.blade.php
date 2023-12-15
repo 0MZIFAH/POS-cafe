@@ -1,7 +1,7 @@
 <footer>
     <div class="footer clearfix mb-0 text-muted">
         <div class="float-left">
-            <p>2020 &copy; Voler</p>
+            <p>2023 &copy; OMZIFAH</p>
         </div>
         <div class="float-right">
             <p>

@@ -1,7 +1,7 @@
 <?php $__env->startSection('title','Dashboard'); ?>
 <?php $__env->startSection('dashboard','active'); ?>
 <?php $__env->startSection('content'); ?>
-<?php echo $__env->make('includes.page-title',['title' => 'Dashboard','paragraph' => 'Melihat statistik cafe'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('includes.page-title',['title' => 'Dashboard','paragraph' => 'Statistic Warung'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <section class="section">
     <div class="row mb-2">
         <div class="col-12 col-md-4">

@@ -22,7 +22,7 @@
                                 class="rounded-circle border-primary border-lg" />
                             <h5 class="pt-3 pb-4 text-primary"><?php echo e(Auth::user()->name); ?></h5>
                             <a href="<?php echo e(route('cashier.create')); ?>"
-                                class="btn btn-block btn-primary shadow-blue mb-3 rounded-lg" target="__blank">Menu</a>
+                                class="btn btn-block btn-primary shadow-blue mb-3 rounded-lg">Menu</a>
                             <form action="<?php echo e(route('auth.logout')); ?>" method="POST" id="logout">
                                 <?php echo csrf_field(); ?>
 

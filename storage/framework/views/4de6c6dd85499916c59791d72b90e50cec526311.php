@@ -1,7 +1,7 @@
 <div id="sidebar" class="active">
     <div class="sidebar-wrapper active">
         <div class="sidebar-header">
-            <h4>Cafe Tutuk</h4>
+            <h4>FORTUNA DASBORD</h4>
         </div>
         <div class="sidebar-menu">
             <ul class="menu">
@@ -27,6 +27,14 @@
                         <span>Manajemen Bahan-Bahan</span>
                     </a>
                 </li>
+
+                <li class="sidebar-item <?php echo $__env->yieldContent('transactionList'); ?>">
+                    <a href="<?php echo e(route('transactionList')); ?>" class="sidebar-link">
+                        <i data-feather="book-open" width="20"></i>
+                        <span>Laporan Penjualan</span>
+                    </a>
+                </li>
+                
                 <li class="sidebar-item <?php echo $__env->yieldContent('user'); ?>">
                     <a href="<?php echo e(route('user.index')); ?>" class="sidebar-link <?php echo $__env->yieldContent('user'); ?>">
                         <i data-feather="user" width="20"></i>

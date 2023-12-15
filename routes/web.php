@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\TransactionListController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +28,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'can:admin'], function () {
     Route::resource('ingredients', 'Admin\IngredientController');
 
     Route::resource('user', 'Admin\UserController');
+    Route::get('/transaction-list',[TransactionListController::class, 'index'])->name('transactionList');
+    Route::get('/exportRevenue',[TransactionListController::class, 'exportrevenue']);
 });
 
 

@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div class="bg-blue">
+    <div class="bg-dark">
         <div class="container pt-110 mb-5">
             <div class="card border-0 rounded-lg shadow-blue p-4">
                 <div class="row">
@@ -21,7 +21,7 @@
                             <!-- Food Section -->
                             <div class="row menus-create foods active-create">
                                 @foreach ($foods as $menu)
-                                <div class="col-3 mb-4 d-flex flex-column justify-content-around align-items-center position-relative"
+                                <div class="col-2 mb-4 d-flex flex-column justify-content-around align-items-center position-relative"
                                     style="height: 150px">
                                     <h6 class="text-primary text-center">
                                         {{ $menu->name }}
@@ -48,7 +48,6 @@
                                     </div>
                                 </div>
                                 @endforeach
-
                             </div>
                             <!-- Food Section -->
                             <div class="row menus-create drinks">
@@ -89,8 +88,8 @@
                             <div class="col">
                                 <div class="card border-0 bg-gray rounded-lg">
                                     <div class="card-body">
-                                        <h5 class="m-0 text-gray text-center">
-                                            Add Customer
+                                        <h5 class="m-0 text-dark text-center">
+                                            Struk Nota
                                         </h5>
                                     </div>
                                 </div>
@@ -100,15 +99,15 @@
                             <div class="col">
                                 <div class="card border-0 bg-gray mt-4 rounded-lg printPage">
                                     <div class="card-body">
-                                        <h6 class="m-0 text-center text-gray">
+                                        <h6 class="m-0 text-center text-dark">
                                             Struk Pembelian
                                         </h6>
                                         <hr />
                                         <div class="orders">
-                                            <table class="table table-borderless text-gray">
+                                            <table class="table table-borderless text-dark">
                                                 <tbody></tbody>
                                             </table>
-                                            <table class="table borderless text-gray">
+                                            <table class="table borderless text-dark">
                                                 <tr>
                                                     <td colspan="2">
                                                         Total
