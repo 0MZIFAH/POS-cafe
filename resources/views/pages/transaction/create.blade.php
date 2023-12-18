@@ -7,7 +7,7 @@
     <title>Cashier - Orders</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
         integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
-    <link rel="stylesheet" href="{{ asset('css/style.css')}}" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
 </head>
 
 <body>
@@ -21,63 +21,67 @@
                             <!-- Food Section -->
                             <div class="row menus-create foods active-create">
                                 @foreach ($foods as $menu)
-                                <div class="col-2 mb-4 d-flex flex-column justify-content-around align-items-center position-relative"
-                                    style="height: 150px">
-                                    <h6 class="text-primary text-center">
-                                        {{ $menu->name }}
-                                    </h6>
-                                    <button
-                                        class="btn btn-sm rounded-lg btn-danger position-absolute btn-trash shadow-none">
-                                        <i data-feather="trash-2"></i>
-                                    </button>
-                                    <div class="box-menu rounded-lg d-flex align-items-end shadow-blue position-relative"
-                                        style="
+                                    <div class="col-3 mb-4 d-flex flex-column justify-content-around align-items-center position-relative"
+                                        style="height: 150px">
+                                        <h6 class="text-primary text-center">
+                                            {{ $menu->name }}
+                                        </h6>
+                                        <button
+                                            class="btn btn-sm rounded-lg btn-danger position-absolute btn-trash shadow-none">
+                                            <i data-feather="trash-2"></i>
+                                        </button>
+                                        <div class="box-menu rounded-lg d-flex align-items-end shadow-blue position-relative"
+                                            style="
                                             background-image: url({{ asset($menu->photo) }});
                                             background-size: cover;
                                             overflow: hidden;
                                         ">
-                                        <div class="order position-relative p-2 bg-blue-transparent rounded-lg">
-                                            <input type="text" id="quantity"
-                                                class="popup text-center form-control form-control-sm rounded-lg mb-1" />
-                                            <button class="popup btn btn-sm btn-block btn-success rounded-lg orders-btn"
-                                                data-productname="{{ $menu->name }}"
-                                                data-productprice="{{ $menu->price }}" data-productid="{{ $menu->id }}">
-                                                Pesan
-                                            </button>
+                                            <div class="order position-relative p-2 bg-blue-transparent rounded-lg">
+                                                <input type="text" id="quantity"
+                                                    class="popup text-center form-control form-control-sm rounded-lg mb-1" />
+                                                <button
+                                                    class="popup btn btn-sm btn-block btn-success rounded-lg orders-btn"
+                                                    data-productname="{{ $menu->name }}"
+                                                    data-productprice="{{ $menu->price }}"
+                                                    data-productid="{{ $menu->id }}" style="color: black;">
+                                                    Pesan
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                                 @endforeach
                             </div>
                             <!-- Food Section -->
                             <div class="row menus-create drinks">
                                 @foreach ($drinks as $menu)
-                                <div class="col-3 mb-4 d-flex flex-column justify-content-around align-items-center position-relative"
-                                    style="height: 150px">
-                                    <h6 class="text-primary text-center">
-                                        {{ $menu->name }}
-                                    </h6>
-                                    <button
-                                        class="btn btn-sm rounded-lg btn-danger position-absolute btn-trash shadow-none">
-                                        <i data-feather="trash-2"></i>
-                                    </button>
-                                    <div class="box-menu rounded-lg d-flex align-items-end shadow-blue position-relative"
-                                        style="
+                                    <div class="col-3 mb-4 d-flex flex-column justify-content-around align-items-center position-relative"
+                                        style="height: 150px">
+                                        <h6 class="text-primary text-center">
+                                            {{ $menu->name }}
+                                        </h6>
+                                        <button
+                                            class="btn btn-sm rounded-lg btn-danger position-absolute btn-trash shadow-none">
+                                            <i data-feather="trash-2"></i>
+                                        </button>
+                                        <div class="box-menu rounded-lg d-flex align-items-end shadow-blue position-relative"
+                                            style="
                                             background-image: url({{ asset($menu->photo) }});
                                             background-size: cover;
                                             overflow: hidden;
                                         ">
-                                        <div class="order position-relative p-2 bg-blue-transparent rounded-lg">
-                                            <input type="text" id="quantity"
-                                                class="popup text-center form-control form-control-sm rounded-lg mb-1" />
-                                            <button class="popup btn btn-sm btn-block btn-success rounded-lg orders-btn"
-                                                data-productname="{{ $menu->name }}"
-                                                data-productprice="{{ $menu->price }}" data-productid="{{ $menu->id }}">
-                                                Pesan
-                                            </button>
+                                            <div class="order position-relative p-2 bg-blue-transparent rounded-lg">
+                                                <input type="text" id="quantity"
+                                                    class="popup text-center form-control form-control-sm rounded-lg mb-1" />
+                                                <button
+                                                    class="popup btn btn-sm btn-block btn-success rounded-lg orders-btn"
+                                                    data-productname="{{ $menu->name }}"
+                                                    data-productprice="{{ $menu->price }}"
+                                                    data-productid="{{ $menu->id }}">
+                                                    Pesan
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                                 @endforeach
                             </div>
                         </div>
@@ -99,9 +103,21 @@
                             <div class="col">
                                 <div class="card border-0 bg-gray mt-4 rounded-lg printPage">
                                     <div class="card-body">
-                                        <h6 class="m-0 text-center text-dark">
-                                            Struk Pembelian
-                                        </h6>
+                                        <img src="{{ asset('img/logo.jpg') }}" alt="Logo"
+                                            class="img-fluid mx-auto d-block" width="15%" height="15%">
+                                        <br>
+                                        <h4 class="judulstruk m-0 text-center text-dark">
+                                            NASI BALAP & SUSU SEGAR FORTUNA
+                                        </h4>
+
+                                        <H6 class="kelurahan m-0 text-center text-dark">
+                                            Klebengan, Caturtunggal, Sleman, DIY
+                                        </H6>
+
+                                        <p class="m-0 text-center text-dark">
+                                            Telp. 088 1980 9725
+                                        </p>
+
                                         <hr />
                                         <div class="orders">
                                             <table class="table table-borderless text-dark">
@@ -116,23 +132,29 @@
                                                 </tr>
                                             </table>
                                         </div>
+                                        <hr style="border-style: dotted;">
+                                        <p class="text-center text-dark">
+                                            <?php
+                                            date_default_timezone_set('Asia/Jakarta');
+                                            echo date('H:i:s, j/m/Y'); ?>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-4 mt-2">
-                                <button class="btn btn-success btn-sm col-12 rounded savebill">
+                                <button class="btn btn-success btn-sm col-12 rounded savebill" style="color: black;">
                                     Save Bill
                                 </button>
                             </div>
                             <div class="col-lg-4 mt-2">
-                                <button class="btn btn-primary btn-sm col-12 rounded print">
+                                <button class="btn btn-primary btn-sm col-12 rounded print"style="color: black;">
                                     Print Bill
                                 </button>
                             </div>
                             <div class="col-lg-4 mt-2">
-                                <button class="btn btn-danger btn-sm col-12 rounded clearbill">
+                                <button class="btn btn-danger btn-sm col-12 rounded clearbill" style="color: black;">
                                     Clear Bill
                                 </button>
                             </div>
@@ -218,7 +240,7 @@
         const productId = [];
         let totalPrice = 0;
         ordersBtn.forEach((element) => {
-            element.onclick = function () {
+            element.onclick = function() {
                 /**
                     Add product information to orders array
                 */
@@ -256,7 +278,7 @@
 
                         totalPrice += parseInt(
                             this.dataset.productprice *
-                                this.previousElementSibling.value
+                            this.previousElementSibling.value
                         );
                         document.querySelector(".total").innerHTML =
                             "Rp. " + totalPrice;
@@ -273,7 +295,7 @@
 
         const trashBtn = document.querySelectorAll(".btn-trash");
         trashBtn.forEach((element) => {
-            element.onclick = function () {
+            element.onclick = function() {
                 const btnOrders = this.nextElementSibling.firstElementChild
                     .lastElementChild;
 
@@ -295,7 +317,7 @@
                 });
                 totalPrice -= parseInt(
                     btnOrders.dataset.productprice *
-                        btnOrders.previousElementSibling.value
+                    btnOrders.previousElementSibling.value
                 );
 
                 document.querySelector(".total").innerHTML =
@@ -306,7 +328,7 @@
         });
 
         const clearBill = document.querySelector(".clearbill");
-        clearBill.onclick = function () {
+        clearBill.onclick = function() {
             if (!productId.length < 1) {
                 clearStruk(strukNode);
             } else {
@@ -319,12 +341,12 @@
         };
 
         const printBtn = document.querySelector(".print");
-        printBtn.onclick = function () {
+        printBtn.onclick = function() {
             window.print();
         };
 
         const saveBtn = document.querySelector(".savebill");
-        saveBtn.onclick = function () {
+        saveBtn.onclick = function() {
             if (productId.length < 1) {
                 Swal.fire({
                     icon: "warning",
@@ -362,14 +384,14 @@
                                 orders: orders,
                             };
                             fetch("{{ route('cashier.store') }}", {
-                                method: "POST",
-                                headers: {
-                                    Accept: "application/json",
-                                    'X-CSRF-TOKEN': "{{ csrf_token() }}",
-                                    "Content-Type": "application/json",
-                                },
-                                body: JSON.stringify(data),
-                            })
+                                    method: "POST",
+                                    headers: {
+                                        Accept: "application/json",
+                                        'X-CSRF-TOKEN': "{{ csrf_token() }}",
+                                        "Content-Type": "application/json",
+                                    },
+                                    body: JSON.stringify(data),
+                                })
                                 .then((response) => response.json())
                                 .then((result) => {
                                     if (
@@ -378,8 +400,7 @@
                                         Swal.fire({
                                             icon: "success",
                                             title: "Transaksi Sukses",
-                                            text:
-                                                "Untuk langkah selanjutnya silahkan print bill atau clear bill.",
+                                            text: "Untuk langkah selanjutnya silahkan print bill atau clear bill.",
                                             backdrop: `
                                             rgba(0, 0, 0, 0.80)
                                             left top
@@ -396,21 +417,21 @@
         };
 
         const menusBtn = document.querySelectorAll('.menuBtn');
-            menusBtn.forEach( btn => {
-                btn.onclick = function(){
-                    
-                    if(this.classList[0] == 'foods'){
-                       const classMenu = document.querySelector(`.${this.classList[0]}`);
-                        classMenu.classList.add('active-create');
-                        classMenu.nextElementSibling.classList.remove('active-create');
-                    
-                    }else{
-                        const classMenu = document.querySelector(`.${this.classList[0]}`);
-                        classMenu.classList.add('active-create');
-                        classMenu.previousElementSibling.classList.remove('active-create');
-                    }
+        menusBtn.forEach(btn => {
+            btn.onclick = function() {
+
+                if (this.classList[0] == 'foods') {
+                    const classMenu = document.querySelector(`.${this.classList[0]}`);
+                    classMenu.classList.add('active-create');
+                    classMenu.nextElementSibling.classList.remove('active-create');
+
+                } else {
+                    const classMenu = document.querySelector(`.${this.classList[0]}`);
+                    classMenu.classList.add('active-create');
+                    classMenu.previousElementSibling.classList.remove('active-create');
                 }
-            });
+            }
+        });
     </script>
 </body>
 

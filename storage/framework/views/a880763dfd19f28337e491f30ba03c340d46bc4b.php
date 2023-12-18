@@ -44,8 +44,8 @@
                                 <div class="card-body d-flex justify-content-between align-items-center">
                                     <div class="left">
                                         <div class="card-title pl-1">
-                                            <h5 class="text-gray">Pemasukan</h5>
-                                            <h2 class="text-gray pt-3"><?php echo e($income); ?></h2>
+                                            <h5 class="text-black">Pemasukan</h5>
+                                            <h2 class="text-black pt-3"><?php echo e($income); ?></h2>
                                         </div>
                                     </div>
                                     <div class="right">
@@ -60,8 +60,8 @@
                                 <div class="card-body d-flex justify-content-between align-items-center">
                                     <div class="left">
                                         <div class="card-title pl-1">
-                                            <h5 class="text-gray">Transaksi</h5>
-                                            <h2 class="text-gray pt-3"><?php echo e($transaction_total); ?></h2>
+                                            <h5 class="text-black">Transaksi</h5>
+                                            <h2 class="text-black pt-3"><?php echo e($transaction_total); ?></h2>
                                         </div>
                                     </div>
                                     <div class="right">
@@ -78,7 +78,7 @@
                         <div class="col">
                             <div class="card border-0 rounded-lg p-3">
                                 <div class="row d-flex align-items-center">
-                                    <h5 class="text-gray m-0 col-lg-6">Daftar Pesanan</h5>
+                                    <h5 class="text-black m-0 col-lg-6">Daftar Pesanan</h5>
                                     <div class="col-lg-6">
                                         <form action="" method="GET">
                                             <div class="input-group">
@@ -100,32 +100,32 @@
                 <!-- Card Orders -->
                 <div class="row mt-2">
                     <?php $__currentLoopData = $transactions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $transaction): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <div class="col-lg-4 mb-3">
-                        <div class="card border-0 rounded-lg shadow-blue mt-2">
-                            <div class="card-body">
-                                <h6 class="m-0 text-center text-primary transaction-name">
-                                    <?php echo e($transaction->name); ?>
+                        <div class="col-lg-4 mb-3">
+                            <div class="card border-0 rounded-lg shadow-blue mt-2">
+                                <div class="card-body">
+                                    <h6 class="m-0 text-center text-primary transaction-name">
+                                        <?php echo e($transaction->name); ?>
 
-                                </h6>
-                                <h6 class="text-gray text-center mt-2 transaction-table">
-                                    <?php echo e($transaction->table_number); ?></h6>
-                                <div class="wrapper-btn mt-4 d-flex justify-content-around">
-                                    <button class="btn btn-sm rounded btn-success" data-toggle="modal"
-                                        data-target="#modal-detail" data-transaction_id='<?php echo e($transaction->id); ?>'>
-                                        <i data-feather="eye"></i>
-                                    </button>
-                                    <button class="btn btn-sm rounded btn-primary" data-toggle="modal"
-                                        data-target="#modal-edit" data-transaction_id='<?php echo e($transaction->id); ?>'>
-                                        <i data-feather="edit"></i>
-                                    </button>
-                                    <button class="btn btn-sm rounded btn-danger" data-toggle="modal"
-                                        data-target="#modal-delete" data-transaction_id='<?php echo e($transaction->id); ?>'>
-                                        <i data-feather="trash-2"></i>
-                                    </button>
+                                    </h6>
+                                    <h6 class="text-gray text-center mt-2 transaction-table">
+                                        <?php echo e($transaction->table_number); ?></h6>
+                                    <div class="wrapper-btn mt-4 d-flex justify-content-around">
+                                        <button class="btn btn-sm rounded btn-success" data-toggle="modal"
+                                            data-target="#modal-detail" data-transaction_id='<?php echo e($transaction->id); ?>'>
+                                            <i data-feather="eye"></i>
+                                        </button>
+                                        <button class="btn btn-sm rounded btn-primary" data-toggle="modal"
+                                            data-target="#modal-edit" data-transaction_id='<?php echo e($transaction->id); ?>'>
+                                            <i data-feather="edit"></i>
+                                        </button>
+                                        <button class="btn btn-sm rounded btn-danger" data-toggle="modal"
+                                            data-target="#modal-delete" data-transaction_id='<?php echo e($transaction->id); ?>'>
+                                            <i data-feather="trash-2"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                 </div>
@@ -291,26 +291,26 @@
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script>
         const modalDetail = document.querySelector('#modal-detail');
-        let modalDetailInstance = new bootstrap.Modal(document.getElementById('modal-detail'),{});
-        modalDetail.addEventListener('show.bs.modal',function(event){
+        let modalDetailInstance = new bootstrap.Modal(document.getElementById('modal-detail'), {});
+        modalDetail.addEventListener('show.bs.modal', function(event) {
             const modal = this;
             const button = event.relatedTarget;
             const transaction_id = button.dataset.transaction_id;
-            
-            fetch('<?php echo e(route('cashier.index')); ?>/'+transaction_id)
-            .then(response => response.json())
-            .then(result => {
-                modal.querySelector('.modal-title').innerHTML = `Pesanan Meja ${result.table_number}`;
-                modal.querySelector('.name').innerHTML = result.name;
-                modal.querySelector('.table_number').innerHTML = result.table_number;
 
-                const table = this.querySelector('.menu-table');
-                table.innerHTML = '';
+            fetch('<?php echo e(route('cashier.index')); ?>/' + transaction_id)
+                .then(response => response.json())
+                .then(result => {
+                    modal.querySelector('.modal-title').innerHTML = `Pesanan Meja ${result.table_number}`;
+                    modal.querySelector('.name').innerHTML = result.name;
+                    modal.querySelector('.table_number').innerHTML = result.table_number;
 
-                let tableHTML = '';
-                let i = 1;
-                result.transaction_details.forEach(detail => {
-                    tableHTML += `
+                    const table = this.querySelector('.menu-table');
+                    table.innerHTML = '';
+
+                    let tableHTML = '';
+                    let i = 1;
+                    result.transaction_details.forEach(detail => {
+                        tableHTML += `
                                 <tr>
                                     <td>${i}</td>
                                     <td>${detail.menus.name}</td>
@@ -318,119 +318,119 @@
                                     <td>${detail.menus.price}</td>
                                 </tr>
                     `;
-                    i++;
-                });
-                table.insertAdjacentHTML('beforeend',tableHTML);
-                modal.querySelector('.total-price').innerHTML = result.total_price;
+                        i++;
+                    });
+                    table.insertAdjacentHTML('beforeend', tableHTML);
+                    modal.querySelector('.total-price').innerHTML = result.total_price;
 
-                const paid_btn =modal.querySelector('.paid');
-                paid_btn.onclick = function(){
-                    
-                    
-                    fetch('<?php echo e(route("cashier.status")); ?>',{
-                        headers: {
-                            'Accept': 'application/json',
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': '<?php echo e(csrf_token()); ?>'
-                        },
-                        body: JSON.stringify({
-                            id:transaction_id,
-                            status: 'bayar'
-                        }),
-                        method:'POST'
-                    })
-                    .then(response => response.json())
-                    .then(result => {
-                        
-                        if(result.msg == 'Status transaksi berhasil diubah'){
-                            modalDetailInstance.hide();
-                            modal.addEventListener('hidden.bs.modal',function(){
-                                setTimeout(function(){
-                                    button.offsetParent.parentNode.remove()
-                                    Swal.fire({
-                                        icon:'success',
-                                        title:'Sukses !!!',
-                                        text:'Status transaksi berhasil diubah',
-                                        timer:2000,
-                                        timerProgressBar:true,
-                                        onBeforeOpen: () => {
-                                            Swal.showLoading();
-                                        }
-                                    });
-                                },1000);
+                    const paid_btn = modal.querySelector('.paid');
+                    paid_btn.onclick = function() {
+
+
+                        fetch('<?php echo e(route('cashier.status')); ?>', {
+                                headers: {
+                                    'Accept': 'application/json',
+                                    'Content-Type': 'application/json',
+                                    'X-CSRF-TOKEN': '<?php echo e(csrf_token()); ?>'
+                                },
+                                body: JSON.stringify({
+                                    id: transaction_id,
+                                    status: 'bayar'
+                                }),
+                                method: 'POST'
                             })
-                        }
-                    })
-                }
-            });
+                            .then(response => response.json())
+                            .then(result => {
+
+                                if (result.msg == 'Status transaksi berhasil diubah') {
+                                    modalDetailInstance.hide();
+                                    modal.addEventListener('hidden.bs.modal', function() {
+                                        setTimeout(function() {
+                                            button.offsetParent.parentNode.remove()
+                                            Swal.fire({
+                                                icon: 'success',
+                                                title: 'Sukses !!!',
+                                                text: 'Status transaksi berhasil diubah',
+                                                timer: 2000,
+                                                timerProgressBar: true,
+                                                onBeforeOpen: () => {
+                                                    Swal.showLoading();
+                                                }
+                                            });
+                                        }, 1000);
+                                    })
+                                }
+                            })
+                    }
+                });
         });
 
         const modalDelete = document.querySelector('#modal-delete');
-        let modalDeleteInstance = new bootstrap.Modal(document.getElementById('modal-delete'),{});
-        modalDelete.addEventListener('show.bs.modal',function(event){
-            const modal     = this;
-            const button    = event.relatedTarget;
+        let modalDeleteInstance = new bootstrap.Modal(document.getElementById('modal-delete'), {});
+        modalDelete.addEventListener('show.bs.modal', function(event) {
+            const modal = this;
+            const button = event.relatedTarget;
             const transaction_id = button.dataset.transaction_id;
-            
-            fetch('<?php echo e(route("cashier.index")); ?>/'+transaction_id)
-            .then(response => response.json())
-            .then(result => {
-                modal.querySelector('.modal-title').innerHTML = `Hapus pesanan ${result.name} ?`;
-            });
+
+            fetch('<?php echo e(route('cashier.index')); ?>/' + transaction_id)
+                .then(response => response.json())
+                .then(result => {
+                    modal.querySelector('.modal-title').innerHTML = `Hapus pesanan ${result.name} ?`;
+                });
 
             const btnDelete = modal.querySelector('.btn-delete');
-                btnDelete.onclick = function(){
-                    fetch('<?php echo e(route("cashier.index")); ?>/'+transaction_id,{
-                        headers:{
+            btnDelete.onclick = function() {
+                fetch('<?php echo e(route('cashier.index')); ?>/' + transaction_id, {
+                        headers: {
                             "X-CSRF-TOKEN": "<?php echo e(csrf_token()); ?>",
                             "Accept": 'application/json',
                             "Content-Type": 'application/json'
                         },
-                        method:"DELETE"
+                        method: "DELETE"
                     })
                     .then(response => response.json())
                     .then(result => {
-                        
-                        if(result.msg == 'Data Pesanan berhasil dihapus'){
+
+                        if (result.msg == 'Data Pesanan berhasil dihapus') {
                             modalDeleteInstance.hide();
-                            setTimeout(function(){
+                            setTimeout(function() {
                                 button.offsetParent.parentNode.remove()
                                 Swal.fire({
-                                    icon:'success',
-                                    title:'Sukses !!!',
-                                    text:'Transaksi berhasil dihapus.',
-                                    timer:2000,
-                                    timerProgressBar:true,
+                                    icon: 'success',
+                                    title: 'Sukses !!!',
+                                    text: 'Transaksi berhasil dihapus.',
+                                    timer: 2000,
+                                    timerProgressBar: true,
                                     onBeforeOpen: () => {
                                         Swal.showLoading();
                                     }
                                 });
-                            },1000);
+                            }, 1000);
                         }
                     }).catch(err => console.log(err));
-                }
-            
+            }
+
         })
 
         const modalEdit = document.querySelector('#modal-edit');
-        let modalEditInstance = new bootstrap.Modal(document.getElementById('modal-edit'),{});
-        modalEdit.addEventListener('show.bs.modal',function(event){
-            const modal     = this;
-            const button    = event.relatedTarget;
+        let modalEditInstance = new bootstrap.Modal(document.getElementById('modal-edit'), {});
+        modalEdit.addEventListener('show.bs.modal', function(event) {
+            const modal = this;
+            const button = event.relatedTarget;
             const transaction_id = button.dataset.transaction_id;
             const detailId = [];
-            
-            fetch('<?php echo e(route("cashier.index")); ?>/'+transaction_id)
-            .then(response => response.json())
-            .then(result => {
-                modal.querySelector('.modal-title').innerHTML = `Ubah pesanan ${result.name}`;
-                modal.querySelector('#name').value = result.name;
-                modal.querySelector('#table-number').value = result.table_number;
-                
-                let tableData = '';
-                let i = 1;
-                result.transaction_details.forEach(detail => {
-                    tableData += `
+
+            fetch('<?php echo e(route('cashier.index')); ?>/' + transaction_id)
+                .then(response => response.json())
+                .then(result => {
+                    modal.querySelector('.modal-title').innerHTML = `Ubah pesanan ${result.name}`;
+                    modal.querySelector('#name').value = result.name;
+                    modal.querySelector('#table-number').value = result.table_number;
+
+                    let tableData = '';
+                    let i = 1;
+                    result.transaction_details.forEach(detail => {
+                        tableData += `
                                     <tr>
                                         <td>${i}</td>
                                         <td>${detail.menus.name}</td>
@@ -442,70 +442,70 @@
                                     </tr>
                                 `;
 
-                    i++;
-                });
-                modal.querySelector('table>.orders').innerHTML = tableData;
-                feather.replace();
+                        i++;
+                    });
+                    modal.querySelector('table>.orders').innerHTML = tableData;
+                    feather.replace();
 
 
-                const deleteBtn = document.querySelectorAll('.delete');           
-                deleteBtn.forEach(btn => {
-                    btn.onclick = function(){
-                        if(!detailId.includes(this.dataset.id)){
-                            detailId.push(this.dataset.id);
+                    const deleteBtn = document.querySelectorAll('.delete');
+                    deleteBtn.forEach(btn => {
+                        btn.onclick = function() {
+                            if (!detailId.includes(this.dataset.id)) {
+                                detailId.push(this.dataset.id);
+                            }
+                            this.offsetParent.parentNode.remove();
                         }
-                        this.offsetParent.parentNode.remove();
-                    }
+                    });
                 });
-            });
 
-            modal.querySelector('.ubah').onclick = function()
-            {
-                
-                const name        = modal.querySelector('#name').value;
+            modal.querySelector('.ubah').onclick = function() {
+
+                const name = modal.querySelector('#name').value;
                 const tableNumber = modal.querySelector('#table-number').value;
                 const data = {
-                    id:transaction_id,
-                    name:name,
-                    table_number:tableNumber,
-                    orders:detailId
+                    id: transaction_id,
+                    name: name,
+                    table_number: tableNumber,
+                    orders: detailId
                 }
 
-                fetch('<?php echo e(route('cashier.index')); ?>/'+transaction_id,{
-                    headers:{
-                        'Accept':'application/json',
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '<?php echo e(csrf_token()); ?>'
-                    },
-                    method:'PUT',
-                    body: JSON.stringify(data)
-                })
-                .then(response => response.json())
-                .then(result => {
-                    console.log(result);
-                    if(result.msg == 'Data berhasil diubah'){
-                        modalEditInstance.hide();
-                        setTimeout(function(){
-                            button.offsetParent.querySelector('.transaction-name').innerHTML = name;
-                            button.offsetParent.querySelector('.transaction-table').innerHTML = tableNumber;
-                            Swal.fire({
-                                icon:'success',
-                                title:'Sukses !!!',
-                                text:'Transaksi berhasil diubah.',
-                                timer:2000,
-                                timerProgressBar:true,
-                                onBeforeOpen: () => {
-                                    Swal.showLoading();
-                                }
-                            });
-                            
-                        },1000);
-                    }
-                });
-            }
-            
-        });
+                fetch('<?php echo e(route('cashier.index')); ?>/' + transaction_id, {
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '<?php echo e(csrf_token()); ?>'
+                        },
+                        method: 'PUT',
+                        body: JSON.stringify(data)
+                    })
+                    .then(response => response.json())
+                    .then(result => {
+                        console.log(result);
+                        if (result.msg == 'Data berhasil diubah') {
+                            modalEditInstance.hide();
+                            setTimeout(function() {
+                                button.offsetParent.querySelector('.transaction-name').innerHTML =
+                                    name;
+                                button.offsetParent.querySelector('.transaction-table').innerHTML =
+                                    tableNumber;
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Sukses !!!',
+                                    text: 'Transaksi berhasil diubah.',
+                                    timer: 2000,
+                                    timerProgressBar: true,
+                                    onBeforeOpen: () => {
+                                        Swal.showLoading();
+                                    }
+                                });
 
+                            }, 1000);
+                        }
+                    });
+            }
+
+        });
     </script>
 
     <script>
@@ -513,4 +513,5 @@
     </script>
 </body>
 
-</html><?php /**PATH C:\xampp\htdocs\cafe_db\resources\views/pages/transaction/index.blade.php ENDPATH**/ ?>
+</html>
+<?php /**PATH C:\xampp\htdocs\cafe_db\resources\views/pages/transaction/index.blade.php ENDPATH**/ ?>

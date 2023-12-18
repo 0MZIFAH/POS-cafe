@@ -2,13 +2,14 @@
 @section('title','Revenue')
 @section('Revenue','active')
 @section('content')
-@include('includes.page-title',['title' => 'Revenue','paragraph' => 'ini laporan pendaptan'])
+@include('includes.page-title',['title' => 'REVENUE','paragraph' => 'Laporan Transaksi pendapatan'])
 <div class="card card-shadow">
   <div class="card-header">
     <div class="card-title">
-      <h2>Laporan Pendapatan</h2>
+      <h2>LAPORAN PENDAPATAN</h2>
     </div>
   </div>
+
   <div class="card-body">
     <table class="table table-bordered">
       <thead>
@@ -31,13 +32,15 @@
           @php $totalPrice += $item->total_price; @endphp
         @endforeach
       </tbody>
+      
       <tfoot>
         <tr>
-          <th colspan="2">Total Pendapatan</th>
+          <th colspan="2">Total Pendapatan :</th>
           <td colspan="2">Rp. {{ $totalPrice }}</td>
         </tr>
       </tfoot>
     </table>
+
     <div class="d-flex">
       <a href="/admin/exportRevenue" class="btn btn-outline-success mt-2">Unduh</a>
     </div>

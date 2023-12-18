@@ -8,12 +8,12 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Daftar Menu</h4>
+                <h4 class="card-title">DAFTAR MENU</h4>
                 <a href="{{ route('menu.create') }}" class="btn btn-outline-success mt-2">Tambah</a>
             </div>
             <div class="card-content">
                 @include('includes.alert')
-                <!-- table with no border -->
+<!-- table with no border -->
                 <div class="table-responsive">
                     <table class="table table-borderless mb-0">
                         <thead>
@@ -24,7 +24,6 @@
                                 <th>Harga</th>
                                 <th>Kategori</th>
                                 <th>Aksi</th>
-
                             </tr>
                         </thead>
                         <tbody>

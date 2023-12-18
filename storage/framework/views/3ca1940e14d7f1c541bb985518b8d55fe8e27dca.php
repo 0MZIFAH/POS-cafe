@@ -239,7 +239,7 @@ unset($__errorArgs, $__bag); ?>"></i></span>
                     </div>
                     <div class="col-6">
                             <div class="form-group has-icon-left">
-                                <label for="first-name-icon">Jumlah (gr)</label>
+                                <label for="first-name-icon">Jumlah dalam (Pcs/gr) </label>
                                 <div class="position-relative">
                                     <input type="text" class="form-control"
                                         name="quantity[]" placeholder="Jumlah" id="quantity" autocomplete="off">
